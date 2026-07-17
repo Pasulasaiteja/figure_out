@@ -2,6 +2,7 @@ services:
   - type: web
     name: transformers-api
     env: python
+    plan: free
     buildCommand: "pip install -r backend/requirements.txt"
     startCommand: "cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT"
     envVars:
@@ -20,3 +21,4 @@ databases:
   - name: transformers-db
     databaseName: transformers
     user: transformers_user
+    plan: free
