@@ -111,4 +111,9 @@ export const achievementAPI = {
   seed: () => api.post('/api/achievements/seed'),
 }
 
+// System APIs
+export const systemAPI = {
+  checkHealth: () => api.get('/health'),
+}
+
 export default api

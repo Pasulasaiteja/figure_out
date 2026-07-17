@@ -14,6 +14,7 @@ import Workout from './pages/Workout'
 import Nutrition from './pages/Nutrition'
 import Progress from './pages/Progress'
 import Profile from './pages/Profile'
+import Health from './pages/Health'
 
 // Components
 import Layout from './components/Layout'
@@ -65,6 +66,7 @@ function App() {
           <Route path="/nutrition" element={<Nutrition />} />
           <Route path="/progress" element={<Progress />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/health" element={<Health />} />
         </Route>
         
         {/* Fallback */}

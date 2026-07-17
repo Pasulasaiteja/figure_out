@@ -6,7 +6,8 @@ import {
   TrendingUp, 
   User, 
   ClipboardCheck,
-  LogOut
+  LogOut,
+  Server
 } from 'lucide-react'
 import { useAuthStore } from '../store/authStore'
 import { motion } from 'framer-motion'
@@ -21,6 +22,7 @@ const Sidebar = ({ isOpen }) => {
     { to: '/nutrition', icon: Apple, label: 'Nutrition' },
     { to: '/progress', icon: TrendingUp, label: 'Progress' },
     { to: '/profile', icon: User, label: 'Profile' },
+    { to: '/health', icon: Server, label: 'System Health' },
   ]
 
   return (

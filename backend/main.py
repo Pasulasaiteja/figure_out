@@ -3,7 +3,10 @@ Transformers - AI-Driven Fitness & Wellness Platform
 Main FastAPI Application
 """
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
+from sqlalchemy import text
+from datetime import datetime
 from app.core.config import settings
 from app.core.database import engine, Base
 from app.api import auth, users, health_assessment, workout, nutrition, progress, chat, calendar, achievements
@@ -52,7 +55,32 @@ async def root():
 @app.get("/health")
 async def health_check():
     """Health check endpoint"""
-    return {"status": "healthy", "service": "transformers-api"}
+    status = "healthy"
+    database = "connected"
+    message = None
+    
+    try:
+        # Check database connection
+        with engine.connect() as connection:
+            connection.execute(text("SELECT 1"))
+    except Exception as e:
+        status = "unhealthy"
+        database = "disconnected"
+        message = "Database connection failed"
+        
+    response = {
+        "status": status,
+        "service": "Transformers API",
+        "version": "1.0.0",
+        "database": database,
+        "timestamp": datetime.utcnow().isoformat() + "Z"
+    }
+    
+    if message:
+        response["message"] = message
+        return JSONResponse(status_code=503, content=response)
+        
+    return response
 
 if __name__ == "__main__":
     import uvicorn
