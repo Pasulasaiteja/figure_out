@@ -1,4 +1,9 @@
 {
+  "build": {
+    "env": {
+      "VITE_API_URL": "https://transformers-api-tmce.onrender.com"
+    }
+  },
   "rewrites": [
     {
       "source": "/(.*)",
