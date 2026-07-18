@@ -3,7 +3,7 @@
  */
 import axios from 'axios'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const API_URL = import.meta.env.VITE_API_URL || (window.location.hostname.includes('vercel.app') ? 'https://transformers-api-tmce.onrender.com' : 'http://localhost:8000')
 
 // Create axios instance
 const api = axios.create({

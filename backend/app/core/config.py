@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 10080  # 7 days
     
     # AI Integration
-    GROQ_API_KEY: str
+    GROQ_API_KEY: Optional[str] = None
     
     # External APIs
     YOUTUBE_API_KEY: Optional[str] = None
